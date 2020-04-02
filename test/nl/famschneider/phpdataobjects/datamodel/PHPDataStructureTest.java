@@ -32,7 +32,7 @@ class PHPDataStructureTest {
         phpDataStructure1.add(phpDataElement1);
         phpDataStructure1.add(phpDataElement2);
         assertEquals(2,phpDataElementList.size());
-        assertEquals("s:22:\"name of \"first element\";s:22:\"value of first element\";s:22:\"name of second element\";s:23:\"value of second element\"", phpDataStructure1.toString());
+        assertEquals("s:22:\"name of \"first element\";s:22:\"value of first element\";s:22:\"name of second element\";s:23:\"value of second element\";", phpDataStructure1.toString());
 
     }
 
@@ -48,7 +48,7 @@ class PHPDataStructureTest {
         phpDataStructure1.add(phpDataElement1);
         phpDataStructure1.add(phpDataElement2);
         assertEquals(2,phpDataElementList.size());
-        assertEquals("s:1:\"1\";s:2:\"1v\";s:1:\"2\";s:2:\"2v\"",phpDataStructure1.toString());
+        assertEquals("s:1:\"1\";s:2:\"1v\";s:1:\"2\";s:2:\"2v\";",phpDataStructure1.toString());
     }
 
     @Test

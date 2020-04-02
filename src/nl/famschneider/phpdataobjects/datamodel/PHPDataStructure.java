@@ -32,7 +32,6 @@ public class PHPDataStructure {
             stringBuilder.append(phpDataElement.toString());
             stringBuilder.append(PHPDataElementSeparator);
         });
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
         return stringBuilder.toString();
     }
     public int size(){
