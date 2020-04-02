@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 import java.util.ArrayList;
 import java.util.List;
 

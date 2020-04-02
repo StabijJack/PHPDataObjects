@@ -1,8 +1,10 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
+import nl.famschneider.phpdataobjects.datamodel.PHPDataDouble;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PHPDataDoubleTest {
     private PHPDataDouble phpDataDouble;
@@ -24,7 +26,7 @@ class PHPDataDoubleTest {
 
     @Test
     void getValueClass() {
-        assertTrue(phpDataDouble.getValue() instanceof Double);
+        assertNotNull(phpDataDouble.getValue());
     }
 
 }

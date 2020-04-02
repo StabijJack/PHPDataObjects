@@ -1,8 +1,10 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
+import nl.famschneider.phpdataobjects.datamodel.PHPDataNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PHPDataNullTest {
     private PHPDataNull phpDataNull;
@@ -19,12 +21,12 @@ class PHPDataNullTest {
 
     @Test
     void getValue() {
-        assertEquals(null, phpDataNull.getValue());
+        assertNull(phpDataNull.getValue());
     }
 
     @Test
     void getValueClass() {
-        assertTrue(phpDataNull.getValue() == null);
+        assertNull(phpDataNull.getValue());
     }
 
 }

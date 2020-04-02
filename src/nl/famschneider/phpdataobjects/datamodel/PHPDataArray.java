@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +9,10 @@ public class PHPDataArray extends PHPDataType {
     //a:identifies array
     //99 number of PHPDataElements
 
-    private List<PHPDataElement> phpDataElementList;
+    private final List<PHPDataElement> phpDataElementList;
 
     public PHPDataArray() {
-        this(new ArrayList());
+        this(new ArrayList<>());
     }
 
     public PHPDataArray(List<PHPDataElement> value) {
@@ -30,13 +32,12 @@ public class PHPDataArray extends PHPDataType {
     @Override
     public String toString() {
         PHPDataStructure phpDataStructure = new PHPDataStructure(phpDataElementList);
-        String stringBuilder = type +
+        return type +
                 separator +
                 phpDataElementList.size() +
                 separator +
                 "{" +
                 phpDataStructure.toString() +
                 "}";
-        return stringBuilder;
     }
 }

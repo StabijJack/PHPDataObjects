@@ -1,3 +1,6 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
+import nl.famschneider.phpdataobjects.datamodel.PHPDataString;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +26,7 @@ class PHPDataStringTest {
 
     @Test
     void getValueClass() {
-        assertTrue(phpDataString.getValue() instanceof String);
+        assertNotNull(phpDataString.getValue());
     }
 
 }

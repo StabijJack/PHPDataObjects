@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 public class PHPDataNull extends PHPDataType {
     //N
     public PHPDataNull() {
@@ -7,9 +9,9 @@ public class PHPDataNull extends PHPDataType {
 
     @Override
     public String toString() {
-        String stringBuilder = type;
-        return stringBuilder;
+        return type;
     }
+    @SuppressWarnings("SameReturnValue")
     public Object getValue(){
         return null;
     }

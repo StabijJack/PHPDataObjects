@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 public class PHPDataBoolean extends PHPDataType {
     //b:0
     //b identifies String
@@ -12,10 +14,9 @@ public class PHPDataBoolean extends PHPDataType {
 
     @Override
     public String toString() {
-        String stringBuilder = type +
+        return type +
                 separator +
                 (value ?  "1" :"0");
-        return stringBuilder;
     }
     public Boolean getValue(){
         return value;

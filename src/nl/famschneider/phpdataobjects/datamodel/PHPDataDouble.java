@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 public class PHPDataDouble extends PHPDataType {
     //d:1234
     //d identifies String
@@ -12,10 +14,9 @@ public class PHPDataDouble extends PHPDataType {
 
     @Override
     public String toString() {
-        String stringBuilder = type +
+        return type +
                 separator +
                 value;
-        return stringBuilder;
     }
     public Double getValue(){
         return value;

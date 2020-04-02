@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 public class PHPDataElement {
 
     // "name";"value"

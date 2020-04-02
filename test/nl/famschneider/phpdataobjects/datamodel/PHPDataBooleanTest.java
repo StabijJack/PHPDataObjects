@@ -1,8 +1,10 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
+import nl.famschneider.phpdataobjects.datamodel.PHPDataBoolean;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PHPDataBooleanTest {
     private PHPDataBoolean phpDataBooleanFalse;
@@ -28,7 +30,7 @@ class PHPDataBooleanTest {
 
     @Test
     void getValueClass() {
-        assertTrue(phpDataBooleanTrue.getValue() instanceof Boolean);
+        assertNotNull(phpDataBooleanTrue.getValue());
     }
 
 }

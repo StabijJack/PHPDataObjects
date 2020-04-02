@@ -1,3 +1,6 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
+import nl.famschneider.phpdataobjects.datamodel.PHPDataInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +24,7 @@ private PHPDataInteger phpDataInteger;
     }
     @Test
     void getValueClass() {
-        assertTrue(phpDataInteger.getValue() instanceof Integer);
+        assertNotNull(phpDataInteger.getValue());
     }
 
 }

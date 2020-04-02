@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 public class PHPDataInteger extends PHPDataType {
     //i:1234
     //i identifies String
@@ -12,10 +14,9 @@ public class PHPDataInteger extends PHPDataType {
 
     @Override
     public String toString() {
-        String stringBuilder = type +
+        return type +
                 separator +
                 value;
-        return stringBuilder;
     }
     public Integer getValue(){
         return value;

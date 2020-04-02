@@ -1,3 +1,5 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
 public class PHPDataString extends PHPDataType {
     //s:99:"string"
     //s identifies String
@@ -14,14 +16,13 @@ public class PHPDataString extends PHPDataType {
 
     @Override
     public String toString() {
-        String stringBuilder = type +
+        return type +
                 separator +
                 value.length() +
                 separator +
                 quote +
                 value +
                 quote;
-        return stringBuilder;
     }
     public String getValue(){
         return value;

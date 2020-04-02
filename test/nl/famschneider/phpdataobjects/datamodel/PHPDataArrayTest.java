@@ -1,3 +1,8 @@
+package nl.famschneider.phpdataobjects.datamodel;
+
+import nl.famschneider.phpdataobjects.datamodel.PHPDataArray;
+import nl.famschneider.phpdataobjects.datamodel.PHPDataElement;
+import nl.famschneider.phpdataobjects.datamodel.PHPDataString;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
