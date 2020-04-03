@@ -7,8 +7,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class PHPDataArrayDeserializer {
     int pointer = 0;
-    private String serializedPHPArray;
-    private PHPDataStructure phpDataStructure;
+    private final String serializedPHPArray;
+    private final PHPDataStructure phpDataStructure;
 
     public PHPDataArrayDeserializer(String serializedPHPArray) {
         this.serializedPHPArray = serializedPHPArray;
@@ -22,18 +22,20 @@ public class PHPDataArrayDeserializer {
     @NotNull
     private PHPDataStructure fillPHPDataStructure() {
         PHPDataStructure phpDataStructure = new PHPDataStructure();
-        phpDataStructure.add(new PHPDataElement(new PHPDataString("root"), getPHPDataArray()));
+        phpDataStructure.add(new PHPDataElement(new PHPDataElementName(new PHPDataString("root")), getPHPDataArray()));
         return phpDataStructure;
     }
 
     @NotNull
     private PHPDataElement getPHPDataElement() {
-        PHPDataElement phpDataElement = new PHPDataElement(
-                // TODO: 2-4-2020 integer array decode
-                getPHPDataString(),
-                getPHPDataType()
-        );
-        return phpDataElement;
+        switch (serializedPHPArray.charAt(pointer)) {
+            case 's':
+                return new PHPDataElement(new PHPDataElementName(getPHPDataString()), getPHPDataType());
+            case 'i':
+                return new PHPDataElement(new PHPDataElementName(getPHPDataInteger()), getPHPDataType());
+            default:
+                return null;
+        }
     }
 
     @Nullable
@@ -86,7 +88,7 @@ public class PHPDataArrayDeserializer {
         pointer++; //skip }
         try {
             if (serializedPHPArray.charAt(pointer) == ';') pointer++; //skip ;
-        }catch (StringIndexOutOfBoundsException e){
+        } catch (StringIndexOutOfBoundsException e) {
             // sometimes there is a ; at the end
         }
 
@@ -97,13 +99,13 @@ public class PHPDataArrayDeserializer {
     private PHPDataString getPHPDataString() {
         pointer++; //skip s
         pointer++; //skip :
-        int stringlength = getLength();
+        int stringLength = getLength();
         pointer++; //skip :
         pointer++; //skip "
         PHPDataString phpDataString = new PHPDataString(
-                serializedPHPArray.substring(pointer, pointer + stringlength)
+                serializedPHPArray.substring(pointer, pointer + stringLength)
         );
-        pointer += stringlength; //skip string
+        pointer += stringLength; //skip string
         pointer++; //skip "
         if (serializedPHPArray.charAt(pointer) == ';') pointer++; //skip ;
         return phpDataString;

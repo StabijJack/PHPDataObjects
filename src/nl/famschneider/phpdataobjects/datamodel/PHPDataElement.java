@@ -5,12 +5,12 @@ public class PHPDataElement {
     // "name";"value"
     // "name" is a PHPString
     // "value" is a PHPDataElementType
-    private final PHPDataString name;
+    private final PHPDataElementName name;
     private final PHPDataType value;
     @SuppressWarnings("FieldCanBeLocal")
     private final String separator = ";";
 
-    public PHPDataElement(PHPDataString name, PHPDataType value) {
+    public PHPDataElement(PHPDataElementName name, PHPDataType value) {
         this.name = name;
         this.value = value;
     }
@@ -20,8 +20,15 @@ public class PHPDataElement {
         return name.toString() + separator + value.toString();
     }
 
-    public PHPDataString getName() {
+    @SuppressWarnings("unused")
+    public PHPDataElementName getPHPElementName(){
         return name;
+    }
+    public String getName() {
+        return name.getName();
+    }
+    public Integer getNumber() {
+        return name.getNumber();
     }
 
     public PHPDataType getValue() {

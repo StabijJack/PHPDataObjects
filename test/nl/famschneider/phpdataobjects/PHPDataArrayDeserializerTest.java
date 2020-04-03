@@ -1,10 +1,10 @@
 package nl.famschneider.phpdataobjects;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataStructure;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SuppressWarnings("SpellCheckingInspection")
 class PHPDataArrayDeserializerTest {
 
     @Test

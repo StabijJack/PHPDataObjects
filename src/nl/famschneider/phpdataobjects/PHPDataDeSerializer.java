@@ -10,7 +10,7 @@ public class PHPDataDeSerializer {
             phpDataStructure = new PHPDataArrayDeserializer(serializedPHPObject).getPhpDataStructure();
         }
         else if (serializedPHPObject.charAt(0)=='{'){
-            PHPDataStructure phpDataStructure = new PHPDataStructureDeserializer(serializedPHPObject).getPhpDataStructure();
+            phpDataStructure = new PHPDataStructureDeserializer(serializedPHPObject).getPhpDataStructure();
         }
         else{
             System.out.println("An unknown Structure");

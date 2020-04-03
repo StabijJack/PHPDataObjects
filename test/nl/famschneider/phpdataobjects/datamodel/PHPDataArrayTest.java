@@ -19,8 +19,8 @@ class PHPDataArrayTest {
     @BeforeEach
     void setUp() {
         phpDataElementList = new ArrayList<>();
-        PHPDataElement phpDataElement1 = new PHPDataElement(new PHPDataString("name of \"first element"), new PHPDataString("value of first element"));
-        PHPDataElement phpDataElement2 = new PHPDataElement(new PHPDataString("name of second element"), new PHPDataString("value of second element"));
+        PHPDataElement phpDataElement1 = new PHPDataElement(new PHPDataElementName(new PHPDataString("name of \"first element")), new PHPDataString("value of first element"));
+        PHPDataElement phpDataElement2 = new PHPDataElement(new PHPDataElementName(new PHPDataString("name of second element")), new PHPDataString("value of second element"));
         phpDataElementList.add(phpDataElement1);
         phpDataElementList.add(phpDataElement2);
         phpDataArray = new PHPDataArray();

@@ -3,10 +3,11 @@ package nl.famschneider.phpdataobjects;
 import org.junit.jupiter.api.Test;
 
 import static nl.famschneider.phpdataobjects.Main.main;
-import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("SpellCheckingInspection")
 class MainTest {
-    private String PHPTestArray = "a:8:{" +
+    @SuppressWarnings("FieldCanBeLocal")
+    private final String PHPTestArray = "a:8:{" +
             "s:16:\"from_email_field\";s:22:\"info@presentalkmaar.nl\";" +
             "s:7:\"Integer\";i:55246;" +
             "s:6:\"Double\";d:55.246;" +
@@ -29,6 +30,7 @@ class MainTest {
             "s:19:\"enable_domain_check\";b:0;" +
             "s:15:\"allowed_domains\";s:0:\"\";" +
             "}";
+    @SuppressWarnings("unused")
     private String PHPTestStructure = "{\"array1\"={\"array2\"={\"array3\"={\"valuefield\"=null}}}}";
 
 

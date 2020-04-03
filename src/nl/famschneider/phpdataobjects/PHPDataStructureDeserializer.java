@@ -3,7 +3,8 @@ package nl.famschneider.phpdataobjects;
 import nl.famschneider.phpdataobjects.datamodel.PHPDataStructure;
 
 public class PHPDataStructureDeserializer {
-    private String serializedPHPStructure;
+    @SuppressWarnings("FieldCanBeLocal")
+    private final String serializedPHPStructure;
     private PHPDataStructure phpDataStructure;
 
     public PHPDataStructureDeserializer(String serializedPHPStructure) {

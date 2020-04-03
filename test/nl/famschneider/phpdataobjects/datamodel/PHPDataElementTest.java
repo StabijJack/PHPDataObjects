@@ -11,7 +11,7 @@ class PHPDataElementTest {
     private PHPDataElement phpDataElement;
     @BeforeEach
     void setUp() {
-        phpDataElement = new PHPDataElement(new PHPDataString("1"), new PHPDataString("1v"));
+        phpDataElement = new PHPDataElement(new PHPDataElementName(new PHPDataString("1")), new PHPDataString("1v"));
     }
 
     @Test
@@ -23,7 +23,7 @@ class PHPDataElementTest {
     @Test
     void getName() {
 
-        assertEquals("1",phpDataElement.getName().getValue());
+        assertEquals("1", phpDataElement.getName());
     }
 
     @Test
