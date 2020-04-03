@@ -11,6 +11,17 @@ public class PHPDataNull extends PHPDataType {
     public String toString() {
         return type;
     }
+
+    public String toString(InputFormat inputFormat) {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            return type;
+        } else {
+            return "";
+        }
+    }
+
     @SuppressWarnings("SameReturnValue")
     public Object getValue(){
         return null;

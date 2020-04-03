@@ -40,4 +40,18 @@ public class PHPDataArray extends PHPDataType {
                 phpDataStructure.toString() +
                 "}";
     }
+
+    public String toString(InputFormat inputFormat) {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            PHPDataStructure phpDataStructure = new PHPDataStructure(phpDataElementList);
+            return "{" +
+                    phpDataStructure.toString(inputFormat) +
+                    "}";
+        } else {
+            return "";
+        }
+    }
+
 }

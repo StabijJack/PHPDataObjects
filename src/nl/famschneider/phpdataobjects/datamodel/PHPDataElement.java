@@ -20,6 +20,17 @@ public class PHPDataElement {
         return name.toString() + separator + value.toString();
     }
 
+    public String toString(InputFormat inputFormat) throws PHPDataModelException {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            return name.toString(inputFormat) + "=" + value.toString(inputFormat);
+        } else {
+            return "";
+        }
+    }
+
+
     @SuppressWarnings("unused")
     public PHPDataElementName getPHPElementName() {
         return name;

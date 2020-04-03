@@ -16,9 +16,20 @@ public class PHPDataBoolean extends PHPDataType {
     public String toString() {
         return type +
                 separator +
-                (value ?  "1" :"0");
+                (value ? "1" : "0");
     }
-    public Boolean getValue(){
+
+    public String toString(InputFormat inputFormat) {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            return value.toString();
+        } else {
+            return "";
+        }
+    }
+
+    public Boolean getValue() {
         return value;
     }
 }

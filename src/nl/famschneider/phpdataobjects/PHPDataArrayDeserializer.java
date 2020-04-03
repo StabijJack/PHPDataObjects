@@ -21,7 +21,7 @@ public class PHPDataArrayDeserializer {
 
     @NotNull
     private PHPDataStructure fillPHPDataStructure() throws PHPDataModelException {
-        PHPDataStructure phpDataStructure = new PHPDataStructure();
+        PHPDataStructure phpDataStructure = new PHPDataStructure(InputFormat.ARRAY);
         phpDataStructure.add(new PHPDataElement(new PHPDataElementName(new PHPDataString("root")), getPHPDataArray()));
         return phpDataStructure;
     }

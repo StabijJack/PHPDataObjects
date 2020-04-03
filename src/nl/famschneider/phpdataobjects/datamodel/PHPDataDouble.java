@@ -18,6 +18,17 @@ public class PHPDataDouble extends PHPDataType {
                 separator +
                 value;
     }
+
+    public String toString(InputFormat inputFormat) {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            return value.toString();
+        } else {
+            return "";
+        }
+    }
+
     public Double getValue(){
         return value;
     }

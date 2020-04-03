@@ -33,6 +33,17 @@ public class PHPDataElementName {
 
     @Override
     public String toString() {
-        return name.toString();
+            return getPHPDataType().toString();
     }
+
+    public String toString(InputFormat inputFormat) throws PHPDataModelException {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            return getName();
+        } else {
+            return "";
+        }
+    }
+
 }

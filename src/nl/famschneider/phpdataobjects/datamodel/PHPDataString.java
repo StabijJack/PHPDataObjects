@@ -24,6 +24,17 @@ public class PHPDataString extends PHPDataType {
                 value +
                 quote;
     }
+
+    public String toString(InputFormat inputFormat) {
+        if (inputFormat == InputFormat.ARRAY) {
+            return toString();
+        } else if (inputFormat == InputFormat.STRUCTURE) {
+            return value;
+        } else {
+            return "";
+        }
+    }
+
     public String getValue(){
         return value;
     }
