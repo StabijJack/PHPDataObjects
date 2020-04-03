@@ -23,14 +23,14 @@ class PHPDataElementNameTest {
     }
 
     @Test
-    void getName() {
+    void getName() throws PHPDataModelException {
         assertEquals("string",phpDataElementNameString.getName());
         assertEquals("1",phpDataElementNameInteger.getName());
     }
 
     @Test
-    void getNumber() {
-        assertNull(phpDataElementNameString.getNumber());
+    void getNumber() throws PHPDataModelException {
+        assertThrows(PHPDataModelException.class,()-> phpDataElementNameString.getNumber());
         assertEquals(1,phpDataElementNameInteger.getNumber());
     }
 

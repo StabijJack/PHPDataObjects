@@ -1,5 +1,6 @@
 package nl.famschneider.phpdataobjects;
 
+import nl.famschneider.phpdataobjects.datamodel.PHPDataModelException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,37 +9,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PHPDataArrayDeserializerTest {
 
     @Test
-    void testString() {
+    void testString() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:6:\"STRING\";s:6:\"string\";};", new PHPDataDeSerializer(
                 "a:1:{s:6:\"STRING\";s:6:\"string\";};"
         ).getPhpDataStructure().toString());
     }
     @Test
-    void testBoolean() {
+    void testBoolean() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:7:\"BOOLEAN\";b:0;};", new PHPDataDeSerializer(
                 "a:1:{s:7:\"BOOLEAN\";b:0;};"
         ).getPhpDataStructure().toString());
     }
     @Test
-    void testInteger() {
+    void testInteger() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:7:\"INTEGER\";i:66;};", new PHPDataDeSerializer(
                 "a:1:{s:7:\"INTEGER\";i:66;};"
         ).getPhpDataStructure().toString());
     }
     @Test
-    void testDouble() {
+    void testDouble() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:6:\"DOUBLE\";d:66.66;};", new PHPDataDeSerializer(
                 "a:1:{s:6:\"DOUBLE\";d:66.66;};"
         ).getPhpDataStructure().toString());
     }
     @Test
-    void testNull() {
+    void testNull() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:4:\"NULL\";N;};", new PHPDataDeSerializer(
                 "a:1:{s:4:\"NULL\";N}"
         ).getPhpDataStructure().toString());
     }
     @Test
-    void testBig(){
+    void testBig() throws PHPDataModelException {
         String PHPTestArray = "a:11:{" +
                 "s:16:\"from_email_field\";s:22:\"info@presentalkmaar.nl\";" +
                 "s:7:\"Integer\";i:55246;" +

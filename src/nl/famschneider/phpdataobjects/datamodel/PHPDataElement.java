@@ -21,13 +21,15 @@ public class PHPDataElement {
     }
 
     @SuppressWarnings("unused")
-    public PHPDataElementName getPHPElementName(){
+    public PHPDataElementName getPHPElementName() {
         return name;
     }
-    public String getName() {
+
+    public String getName() throws PHPDataModelException {
         return name.getName();
     }
-    public Integer getNumber() {
+
+    public Integer getNumber() throws PHPDataModelException {
         return name.getNumber();
     }
 

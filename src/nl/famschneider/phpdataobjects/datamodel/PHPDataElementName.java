@@ -15,20 +15,20 @@ public class PHPDataElementName {
         return name;
     }
 
-    public String getName() {
+    public String getName() throws PHPDataModelException {
         if (name.getClass() == PHPDataString.class) return ((PHPDataString) name).getValue();
         if (name.getClass() == PHPDataInteger.class) return ((PHPDataInteger) name).getValue().toString();
-        return null;
+        throw new PHPDataModelException("Not implemented Name PHPDataType");
     }
 
-    public Integer getNumber() {
+    public Integer getNumber() throws PHPDataModelException {
         try {
             if (name.getClass() == PHPDataString.class) return Integer.parseInt(((PHPDataString) name).getValue());
         }catch (NumberFormatException e){
-            return null;
+            throw new PHPDataModelException("PHPString Contains No number");
         }
         if (name.getClass() == PHPDataInteger.class) return ((PHPDataInteger) name).getValue();
-        return null;
+        throw new PHPDataModelException("Not implemented Name PHPDataType");
     }
 
     @Override

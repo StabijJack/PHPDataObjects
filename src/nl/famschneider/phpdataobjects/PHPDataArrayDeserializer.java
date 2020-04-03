@@ -10,7 +10,7 @@ public class PHPDataArrayDeserializer {
     private final String serializedPHPArray;
     private final PHPDataStructure phpDataStructure;
 
-    public PHPDataArrayDeserializer(String serializedPHPArray) {
+    public PHPDataArrayDeserializer(String serializedPHPArray) throws PHPDataModelException {
         this.serializedPHPArray = serializedPHPArray;
         phpDataStructure = fillPHPDataStructure();
     }
@@ -20,26 +20,26 @@ public class PHPDataArrayDeserializer {
     }
 
     @NotNull
-    private PHPDataStructure fillPHPDataStructure() {
+    private PHPDataStructure fillPHPDataStructure() throws PHPDataModelException {
         PHPDataStructure phpDataStructure = new PHPDataStructure();
         phpDataStructure.add(new PHPDataElement(new PHPDataElementName(new PHPDataString("root")), getPHPDataArray()));
         return phpDataStructure;
     }
 
     @NotNull
-    private PHPDataElement getPHPDataElement() {
+    private PHPDataElement getPHPDataElement() throws PHPDataModelException {
         switch (serializedPHPArray.charAt(pointer)) {
             case 's':
                 return new PHPDataElement(new PHPDataElementName(getPHPDataString()), getPHPDataType());
             case 'i':
                 return new PHPDataElement(new PHPDataElementName(getPHPDataInteger()), getPHPDataType());
             default:
-                return null;
+                throw new PHPDataModelException("Not implemented Name PHPDataType");
         }
     }
 
     @Nullable
-    private PHPDataType getPHPDataType() {
+    private PHPDataType getPHPDataType() throws PHPDataModelException {
         PHPDataType phpDataType;
         switch (serializedPHPArray.charAt(pointer)) {
             case 's': {
@@ -74,7 +74,7 @@ public class PHPDataArrayDeserializer {
     }
 
     @NotNull
-    private PHPDataArray getPHPDataArray() {
+    private PHPDataArray getPHPDataArray() throws PHPDataModelException {
         PHPDataArray phpDataArray = new PHPDataArray();
         pointer++;//skip a
         pointer++;//skip :

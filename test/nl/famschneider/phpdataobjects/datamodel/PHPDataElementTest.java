@@ -21,7 +21,7 @@ class PHPDataElementTest {
     }
 
     @Test
-    void getName() {
+    void getName() throws PHPDataModelException {
 
         assertEquals("1", phpDataElement.getName());
     }

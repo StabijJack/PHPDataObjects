@@ -1,11 +1,12 @@
 package nl.famschneider.phpdataobjects;
 
+import nl.famschneider.phpdataobjects.datamodel.PHPDataModelException;
 import nl.famschneider.phpdataobjects.datamodel.PHPDataStructure;
 
 public class PHPDataDeSerializer {
     private PHPDataStructure phpDataStructure;
 
-    public PHPDataDeSerializer(String serializedPHPObject) {
+    public PHPDataDeSerializer(String serializedPHPObject) throws PHPDataModelException {
         if (serializedPHPObject.charAt(0)=='a'){
             phpDataStructure = new PHPDataArrayDeserializer(serializedPHPObject).getPhpDataStructure();
         }
