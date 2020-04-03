@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 public class PHPDataStructureDeserializer {
     int pointer = 0;
 
-    @SuppressWarnings("FieldCanBeLocal")
     private final String serializedPHPStructure;
     private PHPDataStructure phpDataStructure;
 

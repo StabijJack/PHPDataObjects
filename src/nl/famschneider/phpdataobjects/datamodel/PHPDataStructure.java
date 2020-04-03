@@ -8,9 +8,8 @@ public class PHPDataStructure {
 
     private final List<PHPDataElement> phpDataElementList;
 
-    ;
     private final String PHPDataElementSeparator = ";";
-    private InputFormat inputFormat;
+    private final InputFormat inputFormat;
 
     public PHPDataStructure() {
         this(new ArrayList<>(), InputFormat.ARRAY);
@@ -34,6 +33,10 @@ public class PHPDataStructure {
 
     public List<PHPDataElement> getPhpDataElementList() {
         return phpDataElementList;
+    }
+
+    public InputFormat getInputFormat() {
+        return inputFormat;
     }
 
     @Override
