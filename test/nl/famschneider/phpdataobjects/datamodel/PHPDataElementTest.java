@@ -15,9 +15,9 @@ class PHPDataElementTest {
     }
 
     @Test
-    void testToString() {
+    void testtoString() throws PHPDataModelException {
 
-        assertEquals("s:1:\"1\";s:2:\"1v\"", phpDataElement.toString());
+        assertEquals("s:1:\"1\";s:2:\"1v\"", phpDataElement.serializeToFormat(InputFormat.ARRAY));
     }
 
     @Test

@@ -15,8 +15,8 @@ class PHPDataNullTest {
     }
 
     @Test
-    void testToString() {
-        assertEquals("N", phpDataNull.toString());
+    void testtoString() {
+        assertEquals("N", phpDataNull.serializeToFormat(InputFormat.ARRAY));
     }
 
     @Test

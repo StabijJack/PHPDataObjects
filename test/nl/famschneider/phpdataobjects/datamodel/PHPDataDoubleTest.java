@@ -15,8 +15,8 @@ class PHPDataDoubleTest {
     }
 
     @Test
-    void testToString() {
-        assertEquals("d:555.009", phpDataDouble.toString());
+    void testtoString() {
+        assertEquals("d:555.009", phpDataDouble.serializeToFormat(InputFormat.ARRAY));
     }
 
     @Test

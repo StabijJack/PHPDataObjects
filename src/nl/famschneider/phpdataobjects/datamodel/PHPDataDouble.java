@@ -14,14 +14,14 @@ public class PHPDataDouble extends PHPDataType {
 
     @Override
     public String toString() {
-        return type +
-                separator +
-                value;
+        return value.toString();
     }
 
-    public String toString(InputFormat inputFormat) {
+    public String serializeToFormat(InputFormat inputFormat) {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            return type +
+                    separator +
+                    value;
         } else if (inputFormat == InputFormat.STRUCTURE) {
             return value.toString();
         } else {

@@ -34,8 +34,8 @@ class PHPDataArrayTest {
     }
 
     @Test
-    void testToString() {
+    void testtoString() {
 
-        assertEquals("a:2:{s:22:\"name of \"first element\";s:22:\"value of first element\";s:22:\"name of second element\";s:23:\"value of second element\";}", phpDataArray.toString());
+        assertEquals("a:2:{s:22:\"name of \"first element\";s:22:\"value of first element\";s:22:\"name of second element\";s:23:\"value of second element\";}", phpDataArray.serializeToFormat(InputFormat.ARRAY));
     }
 }

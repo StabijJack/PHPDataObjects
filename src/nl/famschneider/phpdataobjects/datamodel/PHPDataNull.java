@@ -9,12 +9,12 @@ public class PHPDataNull extends PHPDataType {
 
     @Override
     public String toString() {
-        return type;
+        return "Null";
     }
 
-    public String toString(InputFormat inputFormat) {
+    public String serializeToFormat(InputFormat inputFormat) {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            return type;
         } else if (inputFormat == InputFormat.STRUCTURE) {
             return type;
         } else {

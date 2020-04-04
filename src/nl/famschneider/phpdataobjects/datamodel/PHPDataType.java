@@ -4,12 +4,12 @@ public class PHPDataType  {
     protected String type;
     protected final String separator =":";
 
-    @Override
-    public String toString() {
+    public String serializeToFormat(InputFormat inputFormat) {
         return "PHPDataType{}";
     }
 
-    public String toString(InputFormat inputFormat) {
+    @Override
+    public String toString() {
         return "PHPDataType{}";
     }
 }

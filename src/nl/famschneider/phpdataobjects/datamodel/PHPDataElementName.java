@@ -31,16 +31,11 @@ public class PHPDataElementName {
         throw new PHPDataModelException("Not implemented Name PHPDataType");
     }
 
-    @Override
-    public String toString() {
-            return getPHPDataType().toString();
-    }
-
-    public String toString(InputFormat inputFormat) throws PHPDataModelException {
+    public String serializeToFormat(InputFormat inputFormat) throws PHPDataModelException {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            return getPHPDataType().serializeToFormat(InputFormat.ARRAY);
         } else if (inputFormat == InputFormat.STRUCTURE) {
-            return getName();
+            return getPHPDataType().serializeToFormat(InputFormat.STRUCTURE);
         } else {
             return "";
         }

@@ -15,8 +15,8 @@ class PHPDataStringTest {
     }
 
     @Test
-    void testToString() {
-        assertEquals("s:6:\"va\"lue\"",phpDataString.toString());
+    void testtoString() {
+        assertEquals("s:6:\"va\"lue\"",phpDataString.serializeToFormat(InputFormat.ARRAY));
     }
 
     @Test

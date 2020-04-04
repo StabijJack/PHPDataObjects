@@ -14,8 +14,8 @@ private PHPDataInteger phpDataInteger;
     }
 
     @Test
-    void testToString() {
-        assertEquals("i:555", phpDataInteger.toString());
+    void testtoString() {
+        assertEquals("i:555", phpDataInteger.serializeToFormat(InputFormat.ARRAY));
     }
 
     @Test

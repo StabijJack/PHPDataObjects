@@ -17,9 +17,9 @@ class PHPDataBooleanTest {
     }
 
     @Test
-    void testToString() {
-        assertEquals("b:1", phpDataBooleanTrue.toString());
-        assertEquals("b:0", phpDataBooleanFalse.toString());
+    void testtoString() {
+        assertEquals("b:1", phpDataBooleanTrue.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("b:0", phpDataBooleanFalse.serializeToFormat(InputFormat.ARRAY));
     }
 
     @Test

@@ -29,25 +29,20 @@ public class PHPDataArray extends PHPDataType {
         return phpDataElementList;
     }
 
-    @Override
-    public String toString() {
-        PHPDataStructure phpDataStructure = new PHPDataStructure(phpDataElementList);
-        return type +
-                separator +
-                phpDataElementList.size() +
-                separator +
-                "{" +
-                phpDataStructure.toString() +
-                "}";
-    }
-
-    public String toString(InputFormat inputFormat) {
+    public String serializeToFormat(InputFormat inputFormat) {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            PHPDataStructure phpDataStructure = new PHPDataStructure(phpDataElementList);
+            return type +
+                    separator +
+                    phpDataElementList.size() +
+                    separator +
+                    "{" +
+                    phpDataStructure.serializeToFormat(inputFormat) +
+                    "}";
         } else if (inputFormat == InputFormat.STRUCTURE) {
             PHPDataStructure phpDataStructure = new PHPDataStructure(phpDataElementList);
             return "{" +
-                    phpDataStructure.toString(inputFormat) +
+                    phpDataStructure.serializeToFormat(inputFormat) +
                     "}";
         } else {
             return "";

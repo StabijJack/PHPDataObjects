@@ -15,21 +15,15 @@ public class PHPDataElement {
         this.value = value;
     }
 
-    @Override
-    public String toString() {
-        return name.toString() + separator + value.toString();
-    }
-
-    public String toString(InputFormat inputFormat) throws PHPDataModelException {
+    public String serializeToFormat(InputFormat inputFormat) throws PHPDataModelException {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            return name.serializeToFormat(inputFormat) + separator + value.serializeToFormat(inputFormat);
         } else if (inputFormat == InputFormat.STRUCTURE) {
-            return name.toString(inputFormat) + "=" + value.toString(inputFormat);
+            return name.serializeToFormat(inputFormat) + "=" + value.serializeToFormat(inputFormat);
         } else {
             return "";
         }
     }
-
 
     @SuppressWarnings("unused")
     public PHPDataElementName getPHPElementName() {

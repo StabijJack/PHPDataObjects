@@ -14,14 +14,14 @@ public class PHPDataBoolean extends PHPDataType {
 
     @Override
     public String toString() {
-        return type +
-                separator +
-                (value ? "1" : "0");
+        return value.toString();
     }
 
-    public String toString(InputFormat inputFormat) {
+    public String serializeToFormat(InputFormat inputFormat) {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            return type +
+                    separator +
+                    (value ? "1" : "0");
         } else if (inputFormat == InputFormat.STRUCTURE) {
             return value.toString();
         } else {

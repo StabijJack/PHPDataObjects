@@ -16,18 +16,18 @@ public class PHPDataString extends PHPDataType {
 
     @Override
     public String toString() {
-        return type +
-                separator +
-                value.length() +
-                separator +
-                quote +
-                value +
-                quote;
+        return value;
     }
 
-    public String toString(InputFormat inputFormat) {
+    public String serializeToFormat(InputFormat inputFormat) {
         if (inputFormat == InputFormat.ARRAY) {
-            return toString();
+            return type +
+                    separator +
+                    value.length() +
+                    separator +
+                    quote +
+                    value +
+                    quote;
         } else if (inputFormat == InputFormat.STRUCTURE) {
             return value;
         } else {

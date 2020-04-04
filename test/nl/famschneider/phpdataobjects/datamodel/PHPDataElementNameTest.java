@@ -35,8 +35,8 @@ class PHPDataElementNameTest {
     }
 
     @Test
-    void testToString() {
-        assertEquals("s:6:\"string\"", phpDataElementNameString.toString());
-        assertEquals("i:1", phpDataElementNameInteger.toString());
+    void testtoString() throws PHPDataModelException {
+        assertEquals("s:6:\"string\"", phpDataElementNameString.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("i:1", phpDataElementNameInteger.serializeToFormat(InputFormat.ARRAY));
     }
 }
