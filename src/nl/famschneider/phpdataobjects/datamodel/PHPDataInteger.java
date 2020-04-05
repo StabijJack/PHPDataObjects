@@ -17,12 +17,12 @@ public class PHPDataInteger extends PHPDataType {
         return value.toString();
     }
 
-    public String serializeToFormat(InputFormat inputFormat) {
-        if (inputFormat == InputFormat.ARRAY) {
+    public String serializeToFormat(PHPDataSerializeFormat phpDataSerializeFormat) {
+        if (phpDataSerializeFormat == PHPDataSerializeFormat.ARRAY) {
             return type +
                     separator +
                     value;
-        } else if (inputFormat == InputFormat.STRUCTURE) {
+        } else if (phpDataSerializeFormat == PHPDataSerializeFormat.STRUCTURE) {
             return value.toString();
         } else {
             return "";

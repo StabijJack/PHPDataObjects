@@ -12,10 +12,10 @@ public class PHPDataNull extends PHPDataType {
         return "Null";
     }
 
-    public String serializeToFormat(InputFormat inputFormat) {
-        if (inputFormat == InputFormat.ARRAY) {
+    public String serializeToFormat(PHPDataSerializeFormat phpDataSerializeFormat) {
+        if (phpDataSerializeFormat == PHPDataSerializeFormat.ARRAY) {
             return type;
-        } else if (inputFormat == InputFormat.STRUCTURE) {
+        } else if (phpDataSerializeFormat == PHPDataSerializeFormat.STRUCTURE) {
             return type;
         } else {
             return "";

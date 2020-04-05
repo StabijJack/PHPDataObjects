@@ -8,23 +8,23 @@ public class PHPDataStructure {
 
     private final List<PHPDataElement> phpDataElementList;
     private final String PHPDataElementSeparator = ";";
-    private final InputFormat inputFormat;
+    private final PHPDataSerializeFormat phpDataSerializeFormat;
 
     public PHPDataStructure() {
-        this(new ArrayList<>(), InputFormat.ARRAY);
+        this(new ArrayList<>(), PHPDataSerializeFormat.ARRAY);
     }
 
-    public PHPDataStructure(InputFormat inputFormat) {
-        this(new ArrayList<>(), inputFormat);
+    public PHPDataStructure(PHPDataSerializeFormat phpDataSerializeFormat) {
+        this(new ArrayList<>(), phpDataSerializeFormat);
     }
 
     public PHPDataStructure(List<PHPDataElement> phpDataElementList) {
-        this(phpDataElementList, InputFormat.ARRAY);
+        this(phpDataElementList, PHPDataSerializeFormat.ARRAY);
     }
 
-    public PHPDataStructure(List<PHPDataElement> phpDataElementList, InputFormat inputFormat) {
+    public PHPDataStructure(List<PHPDataElement> phpDataElementList, PHPDataSerializeFormat phpDataSerializeFormat) {
         this.phpDataElementList = phpDataElementList;
-        this.inputFormat = inputFormat;
+        this.phpDataSerializeFormat = phpDataSerializeFormat;
     }
 
     public void add(PHPDataElement phpDataElement) {
@@ -35,17 +35,17 @@ public class PHPDataStructure {
         return phpDataElementList;
     }
 
-    public InputFormat getInputFormat() {
-        return inputFormat;
+    public PHPDataSerializeFormat getPHPDataSerializeFormat() {
+        return phpDataSerializeFormat;
     }
 
-    public String serializeToFormat(InputFormat inputFormat) {
-        if (inputFormat == InputFormat.ARRAY) {
+    public String serializeToFormat(PHPDataSerializeFormat phpDataSerializeFormat) {
+        if (phpDataSerializeFormat == PHPDataSerializeFormat.ARRAY) {
             if (phpDataElementList.size() == 0) return "";
             StringBuilder stringBuilder = new StringBuilder();
             phpDataElementList.forEach(phpDataElement -> {
                 try {
-                    stringBuilder.append(phpDataElement.serializeToFormat(inputFormat));
+                    stringBuilder.append(phpDataElement.serializeToFormat(phpDataSerializeFormat));
                 } catch (PHPDataModelException e) {
                     e.printStackTrace();
                     stringBuilder.append(e.getMessage());
@@ -53,11 +53,11 @@ public class PHPDataStructure {
                 stringBuilder.append(PHPDataElementSeparator);
             });
             return stringBuilder.toString();
-        } else if (inputFormat == InputFormat.STRUCTURE) {
+        } else if (phpDataSerializeFormat == PHPDataSerializeFormat.STRUCTURE) {
             StringBuilder stringBuilder = new StringBuilder();
             phpDataElementList.forEach(phpDataElement -> {
                 try {
-                    stringBuilder.append(phpDataElement.serializeToFormat(inputFormat));
+                    stringBuilder.append(phpDataElement.serializeToFormat(phpDataSerializeFormat));
                 } catch (PHPDataModelException e) {
                     stringBuilder.append(e.getMessage());
                 }
@@ -69,8 +69,8 @@ public class PHPDataStructure {
         }
     }
 
-    public int arrayDepth() {
-        return arrayDepth(phpDataElementList) +1; //for value row
+    private int arrayDepth() {
+        return arrayDepth(phpDataElementList) + 1; //for value row
     }
 
     private int arrayDepth(List<PHPDataElement> phpDataElementList) {
@@ -88,7 +88,7 @@ public class PHPDataStructure {
         return depth + maxDepthThisLevel;
     }
 
-    public int arrayWidth() {
+    private int arrayWidth() {
         return arrayWidth(phpDataElementList);
     }
 
@@ -108,27 +108,28 @@ public class PHPDataStructure {
         CurrentPosition cp = new CurrentPosition();
         cp.col = 0;
         cp.row = 0;
-        getExportDataArray(dataArray,cp, getPhpDataElementList());
+        getExportDataArray(dataArray, cp, getPhpDataElementList());
         return dataArray;
     }
-    private void getExportDataArray(String[][] dataArray,CurrentPosition cp , List<PHPDataElement> phpDataElementList) throws PHPDataModelException {
-        for ( PHPDataElement phpDataElement : phpDataElementList){
+
+    private void getExportDataArray(String[][] dataArray, CurrentPosition cp, List<PHPDataElement> phpDataElementList) throws PHPDataModelException {
+        for (PHPDataElement phpDataElement : phpDataElementList) {
             dataArray[cp.row][cp.col] = phpDataElement.getPHPElementName().getName();
             PHPDataType phpDataType = phpDataElement.getValue();
             if ((phpDataType instanceof PHPDataArray)) {
                 cp.row++;
-                getExportDataArray(dataArray,cp, ((PHPDataArray) phpDataType).getValue());
+                getExportDataArray(dataArray, cp, ((PHPDataArray) phpDataType).getValue());
                 cp.row--;
-            } else{
-                dataArray[dataArray.length -1][cp.col] = phpDataElement.getValue().toString();
+            } else {
+                dataArray[dataArray.length - 1][cp.col] = phpDataElement.getValue().toString();
                 cp.col++;
-            };
+            }
 
         }
     }
-}
 
-class CurrentPosition {
-    int row;
-    int col;
+    static class CurrentPosition {
+        int row;
+        int col;
+    }
 }

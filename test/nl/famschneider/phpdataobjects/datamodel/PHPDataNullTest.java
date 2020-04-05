@@ -1,6 +1,5 @@
 package nl.famschneider.phpdataobjects.datamodel;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ class PHPDataNullTest {
 
     @Test
     void testtoString() {
-        assertEquals("N", phpDataNull.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("N", phpDataNull.serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 
     @Test

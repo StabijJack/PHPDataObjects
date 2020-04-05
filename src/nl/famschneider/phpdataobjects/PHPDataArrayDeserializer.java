@@ -5,23 +5,23 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class PHPDataArrayDeserializer {
+class PHPDataArrayDeserializer {
     int pointer = 0;
     private final String serializedPHPArray;
     private final PHPDataStructure phpDataStructure;
 
-    public PHPDataArrayDeserializer(String serializedPHPArray) throws PHPDataModelException {
+    PHPDataArrayDeserializer(String serializedPHPArray) throws PHPDataModelException {
         this.serializedPHPArray = serializedPHPArray;
         phpDataStructure = fillPHPDataStructure();
     }
 
-    public PHPDataStructure getPhpDataStructure() {
+    PHPDataStructure getPhpDataStructure() {
         return phpDataStructure;
     }
 
     @NotNull
     private PHPDataStructure fillPHPDataStructure() throws PHPDataModelException {
-        PHPDataStructure phpDataStructure = new PHPDataStructure(InputFormat.ARRAY);
+        PHPDataStructure phpDataStructure = new PHPDataStructure(PHPDataSerializeFormat.ARRAY);
         phpDataStructure.add(new PHPDataElement(new PHPDataElementName(new PHPDataString("root")), getPHPDataArray()));
         return phpDataStructure;
     }

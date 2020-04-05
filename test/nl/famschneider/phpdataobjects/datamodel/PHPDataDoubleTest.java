@@ -1,6 +1,5 @@
 package nl.famschneider.phpdataobjects.datamodel;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataDouble;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ class PHPDataDoubleTest {
 
     @Test
     void testtoString() {
-        assertEquals("d:555.009", phpDataDouble.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("d:555.009", phpDataDouble.serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 
     @Test

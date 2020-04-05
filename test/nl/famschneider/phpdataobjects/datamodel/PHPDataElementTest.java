@@ -1,7 +1,5 @@
 package nl.famschneider.phpdataobjects.datamodel;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataElement;
-import nl.famschneider.phpdataobjects.datamodel.PHPDataString;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +15,7 @@ class PHPDataElementTest {
     @Test
     void testtoString() throws PHPDataModelException {
 
-        assertEquals("s:1:\"1\";s:2:\"1v\"", phpDataElement.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("s:1:\"1\";s:2:\"1v\"", phpDataElement.serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 
     @Test

@@ -1,6 +1,5 @@
 package nl.famschneider.phpdataobjects.datamodel;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +14,7 @@ private PHPDataInteger phpDataInteger;
 
     @Test
     void testtoString() {
-        assertEquals("i:555", phpDataInteger.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("i:555", phpDataInteger.serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 
     @Test

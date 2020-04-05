@@ -1,6 +1,6 @@
 package nl.famschneider.phpdataobjects;
 
-import nl.famschneider.phpdataobjects.datamodel.InputFormat;
+import nl.famschneider.phpdataobjects.datamodel.PHPDataSerializeFormat;
 import nl.famschneider.phpdataobjects.datamodel.PHPDataModelException;
 import org.junit.jupiter.api.Test;
 
@@ -13,31 +13,31 @@ class PHPDataArrayDeserializerTest {
     void testString() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:6:\"STRING\";s:6:\"string\";};", new PHPDataDeSerializer(
                 "a:1:{s:6:\"STRING\";s:6:\"string\";};"
-        ).getPhpDataStructure().serializeToFormat(InputFormat.ARRAY));
+        ).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
     @Test
     void testBoolean() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:7:\"BOOLEAN\";b:0;};", new PHPDataDeSerializer(
                 "a:1:{s:7:\"BOOLEAN\";b:0;};"
-        ).getPhpDataStructure().serializeToFormat(InputFormat.ARRAY));
+        ).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
     @Test
     void testInteger() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:7:\"INTEGER\";i:66;};", new PHPDataDeSerializer(
                 "a:1:{s:7:\"INTEGER\";i:66;};"
-        ).getPhpDataStructure().serializeToFormat(InputFormat.ARRAY));
+        ).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
     @Test
     void testDouble() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:6:\"DOUBLE\";d:66.66;};", new PHPDataDeSerializer(
                 "a:1:{s:6:\"DOUBLE\";d:66.66;};"
-        ).getPhpDataStructure().serializeToFormat(InputFormat.ARRAY));
+        ).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
     @Test
     void testNull() throws PHPDataModelException {
         assertEquals("s:4:\"root\";a:1:{s:4:\"NULL\";N;};", new PHPDataDeSerializer(
                 "a:1:{s:4:\"NULL\";N}"
-        ).getPhpDataStructure().serializeToFormat(InputFormat.ARRAY));
+        ).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
     @Test
     void testBig() throws PHPDataModelException {
@@ -66,6 +66,6 @@ class PHPDataArrayDeserializerTest {
                 "};";
         assertEquals("s:4:\"root\";"+ PHPTestArray, new PHPDataDeSerializer(
                 PHPTestArray
-        ).getPhpDataStructure().serializeToFormat(InputFormat.ARRAY));
+        ).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 }

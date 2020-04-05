@@ -19,8 +19,8 @@ public class PHPDataString extends PHPDataType {
         return value;
     }
 
-    public String serializeToFormat(InputFormat inputFormat) {
-        if (inputFormat == InputFormat.ARRAY) {
+    public String serializeToFormat(PHPDataSerializeFormat phpDataSerializeFormat) {
+        if (phpDataSerializeFormat == PHPDataSerializeFormat.ARRAY) {
             return type +
                     separator +
                     value.length() +
@@ -28,7 +28,7 @@ public class PHPDataString extends PHPDataType {
                     quote +
                     value +
                     quote;
-        } else if (inputFormat == InputFormat.STRUCTURE) {
+        } else if (phpDataSerializeFormat == PHPDataSerializeFormat.STRUCTURE) {
             return value;
         } else {
             return "";

@@ -4,7 +4,7 @@ public class PHPDataType  {
     protected String type;
     protected final String separator =":";
 
-    public String serializeToFormat(InputFormat inputFormat) {
+    public String serializeToFormat(PHPDataSerializeFormat phpDataSerializeFormat) {
         return "PHPDataType{}";
     }
 

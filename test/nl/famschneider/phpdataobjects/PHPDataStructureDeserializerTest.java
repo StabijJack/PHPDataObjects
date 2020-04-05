@@ -1,6 +1,6 @@
 package nl.famschneider.phpdataobjects;
 
-import nl.famschneider.phpdataobjects.datamodel.InputFormat;
+import nl.famschneider.phpdataobjects.datamodel.PHPDataSerializeFormat;
 import nl.famschneider.phpdataobjects.datamodel.PHPDataModelException;
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +15,6 @@ class PHPDataStructureDeserializerTest {
     @Test
     void getPhpDataStructure() throws PHPDataModelException {
 
-        assertEquals("root={array1={ar\"ray2={array3={valu\"efield=null;};};};};",new PHPDataStructureDeserializer(PHPTestStructure).getPhpDataStructure().serializeToFormat(InputFormat.STRUCTURE));
+        assertEquals("root={array1={ar\"ray2={array3={valu\"efield=null;};};};};",new PHPDataStructureDeserializer(PHPTestStructure).getPhpDataStructure().serializeToFormat(PHPDataSerializeFormat.STRUCTURE));
     }
 }

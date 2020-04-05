@@ -1,6 +1,5 @@
 package nl.famschneider.phpdataobjects.datamodel;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataBoolean;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,8 +17,8 @@ class PHPDataBooleanTest {
 
     @Test
     void testtoString() {
-        assertEquals("b:1", phpDataBooleanTrue.serializeToFormat(InputFormat.ARRAY));
-        assertEquals("b:0", phpDataBooleanFalse.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("b:1", phpDataBooleanTrue.serializeToFormat(PHPDataSerializeFormat.ARRAY));
+        assertEquals("b:0", phpDataBooleanFalse.serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 
     @Test

@@ -15,11 +15,11 @@ public class PHPDataElement {
         this.value = value;
     }
 
-    public String serializeToFormat(InputFormat inputFormat) throws PHPDataModelException {
-        if (inputFormat == InputFormat.ARRAY) {
-            return name.serializeToFormat(inputFormat) + separator + value.serializeToFormat(inputFormat);
-        } else if (inputFormat == InputFormat.STRUCTURE) {
-            return name.serializeToFormat(inputFormat) + "=" + value.serializeToFormat(inputFormat);
+    public String serializeToFormat(PHPDataSerializeFormat phpDataSerializeFormat) throws PHPDataModelException {
+        if (phpDataSerializeFormat == PHPDataSerializeFormat.ARRAY) {
+            return name.serializeToFormat(phpDataSerializeFormat) + separator + value.serializeToFormat(phpDataSerializeFormat);
+        } else if (phpDataSerializeFormat == PHPDataSerializeFormat.STRUCTURE) {
+            return name.serializeToFormat(phpDataSerializeFormat) + "=" + value.serializeToFormat(phpDataSerializeFormat);
         } else {
             return "";
         }

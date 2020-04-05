@@ -3,24 +3,24 @@ package nl.famschneider.phpdataobjects;
 import nl.famschneider.phpdataobjects.datamodel.*;
 import org.jetbrains.annotations.NotNull;
 
-public class PHPDataStructureDeserializer {
+class PHPDataStructureDeserializer {
     int pointer = 0;
 
     private final String serializedPHPStructure;
     private PHPDataStructure phpDataStructure;
 
-    public PHPDataStructureDeserializer(String serializedPHPStructure) throws PHPDataModelException {
+    PHPDataStructureDeserializer(String serializedPHPStructure) throws PHPDataModelException {
         this.serializedPHPStructure = serializedPHPStructure;
         phpDataStructure = fillPHPDataStructure();
     }
 
-    public PHPDataStructure getPhpDataStructure() {
+    PHPDataStructure getPhpDataStructure() {
         return phpDataStructure;
     }
 
     @NotNull
     private PHPDataStructure fillPHPDataStructure() throws PHPDataModelException {
-        PHPDataStructure phpDataStructure = new PHPDataStructure(InputFormat.STRUCTURE);
+        PHPDataStructure phpDataStructure = new PHPDataStructure(PHPDataSerializeFormat.STRUCTURE);
         phpDataStructure.add(new PHPDataElement(new PHPDataElementName(new PHPDataString("root")), getPHPDataArray()));
         return phpDataStructure;
     }

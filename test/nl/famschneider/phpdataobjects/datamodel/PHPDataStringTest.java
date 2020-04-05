@@ -1,6 +1,5 @@
 package nl.famschneider.phpdataobjects.datamodel;
 
-import nl.famschneider.phpdataobjects.datamodel.PHPDataString;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ class PHPDataStringTest {
 
     @Test
     void testtoString() {
-        assertEquals("s:6:\"va\"lue\"",phpDataString.serializeToFormat(InputFormat.ARRAY));
+        assertEquals("s:6:\"va\"lue\"",phpDataString.serializeToFormat(PHPDataSerializeFormat.ARRAY));
     }
 
     @Test
