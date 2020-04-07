@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PHPDataStructureTest {
@@ -83,7 +84,28 @@ class PHPDataStructureTest {
 
     @Test
     void exportDataArray() throws PHPDataModelException {
+        String PHPTestStructure1 = "{\"a\"={\"b\"={\"c\"={\"d\"=0null}}}\"e\"={\"f\"={\"g\"=1null}}}";
+        PHPDataStructure phpDataStructure1 = new PHPDataDeSerializer(PHPTestStructure1).getPhpDataStructure();
+        String[][] array = phpDataStructure1.getExportDataArray();
+        assertArrayEquals(new String[][]{{"root",""},{"a","e"},{"b","f"},{"c","g"},{"d",""},{"0null","1null"}}, array);
+    }
+
+    @Test
+    void getExportDataArrayHeader() throws PHPDataModelException {
+        String PHPTestStructure1 = "{\"a\"={\"b\"={\"c\"={\"d\"=0null}}}\"e\"={\"f\"={\"g\"=1null}}}";
+        PHPDataStructure phpDataStructure1 = new PHPDataDeSerializer(PHPTestStructure1).getPhpDataStructure();
+        phpDataStructure1.getExportDataArrayHeader();
+        String[][] headers = phpDataStructure1.getExportDataArrayHeader();
+        assertArrayEquals(new String[][]{{"root",""},{"a","e"},{"b","f"},{"c","g"},{"d",""}}, headers);
+
+    }
+
+    @Test
+    void getExportDataArrayValues() throws PHPDataModelException {
         String PHPTestStructure1 = "{\"oarray1\"={\"oarray2\"={\"oarray3\"={\"0valuefield\"=0null}}}\"1array1\"={\"1array2\"={\"1valuefield\"=1null}}}";
         PHPDataStructure phpDataStructure1 = new PHPDataDeSerializer(PHPTestStructure1).getPhpDataStructure();
+        String[] values = phpDataStructure1.getExportDataArrayValues();
+        assertArrayEquals(new String[]{"0null","1null"}, values);
+
     }
 }

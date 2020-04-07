@@ -13,10 +13,12 @@ PHPDateDeSerializer(String string) returns a PHPDataStructure object</p>
 <ul>
     <li>getExportDataArray() returns a String[][] with 
         <ul>
-            <li>field names in the top n rows</li>
+            <li>field names in the top n rows (header)</li>
             <li>field values in the last row.</li>
         </ul>
     </li>
+    <li>getExportDataArrayHeader()</li>
+    <li>getExportDataArrayValues()</li>
     <li> getSerializeFormat() returns the Format of the serialized input</li>
     <li>serializeToFormat(Format) returns a serialized String of the PHPDataStructure</li>
 </ul>

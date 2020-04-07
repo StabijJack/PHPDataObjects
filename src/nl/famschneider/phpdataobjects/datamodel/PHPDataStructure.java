@@ -108,8 +108,31 @@ public class PHPDataStructure {
         CurrentPosition cp = new CurrentPosition();
         cp.col = 0;
         cp.row = 0;
+        for (int i = 0; i < dataArray.length; i++) {
+            for (int j = 0; j <dataArray[i].length ; j++) {
+                dataArray[i][j] ="";
+            }
+        }
+// does not work becaus the the interal the fors creates new arrays and objects in stead of a refference.
+//        for (String[] array:dataArray) {
+//            for (String s:array) {
+//                s = "empty";
+//            }
+//        }
         getExportDataArray(dataArray, cp, getPhpDataElementList());
         return dataArray;
+    }
+    public String[][] getExportDataArrayHeader() throws PHPDataModelException {
+        String[][] exportDataArray = getExportDataArray();
+        String[][] exportDataArrayHeader = new String[exportDataArray.length - 1][exportDataArray[0].length];
+        for (int i = 0; i < exportDataArray.length -1; i++) {
+            exportDataArrayHeader[i] = exportDataArray[i];
+        }
+        return  exportDataArrayHeader;
+    }
+    public String[] getExportDataArrayValues() throws PHPDataModelException {
+        String[][] exportDataArray = getExportDataArray();
+        return exportDataArray[exportDataArray.length -1];
     }
 
     private void getExportDataArray(String[][] dataArray, CurrentPosition cp, List<PHPDataElement> phpDataElementList) throws PHPDataModelException {
@@ -124,7 +147,6 @@ public class PHPDataStructure {
                 dataArray[dataArray.length - 1][cp.col] = phpDataElement.getValue().toString();
                 cp.col++;
             }
-
         }
     }
 
